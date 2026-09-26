@@ -15,6 +15,7 @@
 #include "asm.h"
 #include "util.h"
 #include "eecore_config.h"
+#include "patches.h"
 
 extern int _iop_reboot_count; // defined in libkernel (iopcontrol.c)
 
@@ -402,6 +403,9 @@ u32 New_SifSetDma(SifDmaTransfer_t *sdd, s32 len)
     return 1;
 }
 
+
+extern char savedElfPath[64];
+
 //---------------------------------------------------------------------------
 // Function running in kernel mode!
 // No printf and keep as simple as possible!
@@ -433,7 +437,7 @@ static int Hook_SifSetReg(u32 register_num, int register_value)
     } else if (set_reg_hook != 0) {
         BGERROR(COLOR_FUNC_IOPREBOOT, 3);
     }
-
+    apply_patches(savedElfPath);
     return Old_SifSetReg(register_num, register_value);
 }
 

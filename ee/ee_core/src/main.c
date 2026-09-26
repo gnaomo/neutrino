@@ -11,6 +11,7 @@
 #include <loadfile.h>
 #include <sifrpc.h>
 #include <iopheap.h>
+#include <string.h>
 
 // Neutrino
 #include "ee_debug.h"
@@ -38,6 +39,8 @@ void _ps2sdk_timezone_update() {}
 
 DISABLE_PATCHED_FUNCTIONS();      // Disable the patched functionalities
 DISABLE_EXTRA_TIMERS_FUNCTIONS(); // Disable the extra functionalities for timers
+
+char savedElfPath[64];
 
 int main(int argc, char **argv)
 {
@@ -116,7 +119,7 @@ int main(int argc, char **argv)
         services_start();
         int r = SifLoadElf(argv[0], &elf);
         if (!r) {
-            apply_patches(argv[0]);
+            memcpy(savedElfPath, argv[0], 32);
 
             // Patch PS2LOGO if needed
             if (!_strcmp(argv[0], "rom0:PS2LOGO") && (eec.flags & EECORE_FLAG_LOGO_PATCH))
