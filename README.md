@@ -1,3 +1,22 @@
+# UYA SLOWDOWN FIX NEUTRINO
+
+This is meant to be used **only with Ratchet and Clank 3/Up Your Arsenal**, this fix has been implemented by **isak**, ty.
+
+Support for **all regions** (NTSC, PAL, JAP, KOR), they **all boot on top of that**. KOR and JAP never booted on OPL/Neutrino as of now so its good news for the Ratchet friends abroad.
+
+No other games are expected to work correctly like in the main repo cause games patching has been changed.
+
+The slowdown bug is only present in Singleplayer. Multiplayer is a different elf and it doesn't have the bug thankfully.
+
+If you wish to play online anyway you have to use main repo origin release [1.7.0](https://github.com/ps2max32/neutrino/releases/tag/v1.7.0), which is what [Horizon](https://github.com/Horizon-Private-Server/horizon-wiki) suggests to use on its [guide](https://docs.google.com/document/d/1cSwpXE4TPN4JAliNGKacys-EtoaoWDFqZhwP23DREOM/edit?tab=t.0). As I already stated, slowdown-bug is not present on online.
+
+If you are confused when I say "Slowdown bug", look into [this](https://github.com/ps2homebrew/Open-PS2-Loader/issues/803) and [this](https://github.com/ps2max32/neutrino/issues/73) thread, it has been a problem since the dawn of PS2 loaders (on pcsx2 is not present) but after a month long talk with Claude, I managed to find a very good lead and isak stepped in to help.
+
+**This is a quick fix not intended to be the final solution that should be adopted in neutrino.** 
+
+What follows now is the original readme, ty for reading, please dm me on discord (@gnaomo) if this fix causes any unintended consequences while playing.
+
+
 # neutrino
 Small, Fast and Modular PS2 Device Emulator
 
